@@ -4,23 +4,23 @@
 using namespace std;
 
 void makeWheel(int n, int k, vector<pair<int,char>> &wheel) {
-    vector<char> arr(n, '?'); // ¹ÙÄûÀÇ Ä­ (ÃÊ±â¿¡´Â ¸ğµÎ '?')
-    int pointer = 0; // È­»ìÇ¥ À§Ä¡
+    vector<char> arr(n, '?'); // ë°”í€´ì˜ ì¹¸ (ì´ˆê¸°ì—ëŠ” ëª¨ë‘ '?')
+    int pointer = 0; // í™”ì‚´í‘œ ìœ„ì¹˜
 
     for (int i = 0; i < k; i++) {
         int s=wheel[i].first;
         char ch=wheel[i].second;
 
-        // ÇöÀç È­»ìÇ¥°¡ °¡¸®Å°´Â À§Ä¡ ÀÌµ¿
+        // í˜„ì¬ í™”ì‚´í‘œê°€ ê°€ë¦¬í‚¤ëŠ” ìœ„ì¹˜ ì´ë™
         pointer = (pointer - s % n + n) % n;
 
-        // ÀÌ¹Ì Ã¤¿öÁø Ä­¿¡ ´Ù¸¥ ¹®ÀÚ°¡ µé¾î¿Â´Ù¸é ¸ğ¼ø -> "!" Ãâ·Â ÈÄ Á¾·á
+        // ì´ë¯¸ ì±„ì›Œì§„ ì¹¸ì— ë‹¤ë¥¸ ë¬¸ìê°€ ë“¤ì–´ì˜¨ë‹¤ë©´ ëª¨ìˆœ -> "!" ì¶œë ¥ í›„ ì¢…ë£Œ
         if (arr[pointer] != '?' && arr[pointer] != ch) {
             cout << "!" << endl;
             return;
         }
         
-        // °°Àº ±ÛÀÚ°¡ µÎ ¹ø ÀÌ»ó µîÀåÇÏ¸é ¸ğ¼ø -> "!" Ãâ·Â ÈÄ Á¾·á
+        // ê°™ì€ ê¸€ìê°€ ë‘ ë²ˆ ì´ìƒ ë“±ì¥í•˜ë©´ ëª¨ìˆœ -> "!" ì¶œë ¥ í›„ ì¢…ë£Œ
         for (int j = 0; j < n; j++) {
             if (arr[j] == ch && j != pointer) {
                 cout << "!" << endl;
