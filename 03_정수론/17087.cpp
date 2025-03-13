@@ -23,7 +23,6 @@ int main() {
     for (int i = 0; i < n; i++) {
         cin >> arr[i];
         diff[i] = abs(arr[i] - s); // 각 동생과 S의 거리 차이 저장
-    }
 
     // diff[0]를 기준으로 diff[i]들의 최대공약수 구하기
     long long d = diff[0];
