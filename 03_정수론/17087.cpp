@@ -4,7 +4,7 @@
 
 using namespace std;
 
-//ÃÖ´ë°ø¾à¼ö ±¸ÇÏ±â 
+//ìµœëŒ€ê³µì•½ìˆ˜ êµ¬í•˜ê¸° 
 int getGcdRecur(int a, int b) {
     if (b == 0) {
         return a;
@@ -17,15 +17,14 @@ int main() {
     long long s;
     cin >> n >> s;
 
-    vector<long long> arr(n);  // µ¿»ýµéÀÇ À§Ä¡¸¦ ÀúÀå
-    vector<long long> diff(n); // °Å¸® Â÷ÀÌ¸¦ ÀúÀå
+    vector<long long> arr(n);  // ë™ìƒë“¤ì˜ ìœ„ì¹˜ë¥¼ ì €ìž¥
+    vector<long long> diff(n); // ê±°ë¦¬ ì°¨ì´ë¥¼ ì €ìž¥
 
     for (int i = 0; i < n; i++) {
         cin >> arr[i];
-        diff[i] = abs(arr[i] - s); // °¢ µ¿»ý°ú SÀÇ °Å¸® Â÷ÀÌ ÀúÀå
-    }
+        diff[i] = abs(arr[i] - s); // ê° ë™ìƒê³¼ Sì˜ ê±°ë¦¬ ì°¨ì´ ì €ìž¥
 
-    // diff[0]¸¦ ±âÁØÀ¸·Î diff[i]µéÀÇ ÃÖ´ë°ø¾à¼ö ±¸ÇÏ±â
+    // diff[0]ë¥¼ ê¸°ì¤€ìœ¼ë¡œ diff[i]ë“¤ì˜ ìµœëŒ€ê³µì•½ìˆ˜ êµ¬í•˜ê¸°
     long long d = diff[0];
     for (int i = 1; i < n; i++) {
         d = getGcdRecur(d, diff[i]);
