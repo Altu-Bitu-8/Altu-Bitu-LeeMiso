@@ -21,13 +21,15 @@ int main() {
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-    int MAX_N = 1000000;
+    const int MAX_N = 1000000;
     vector<bool> is_prime = findPrime(MAX_N); // 1000000까지의 소수를 미리 구함
 
     int n;
     while (true) {
         cin >> n;
-        if (n == 0) break;
+        if (n == 0) {
+            break;
+        }
 
         bool found = false;
         for (int a = n - 3; a >= 3; a -= 2) { // 가장 큰 홀수 소수부터 탐색
