@@ -4,14 +4,14 @@
 using namespace std;
 
 vector<bool> findPrime(int n) {
-    vector<bool> is_prime(n + 1, true); // ¼Ò¼ö ¿©ºÎ ÀúÀå
+    vector<bool> is_prime(n + 1, true); // ì†Œìˆ˜ ì—¬ë¶€ ì €ì¥
     is_prime[0] = is_prime[1] = false;
 
     for (int i = 2; i <= n; i++) {
-        if (!is_prime[i]) continue; // flase µÈ ¼ö´Â ½ºÅµ
+        if (!is_prime[i]) continue; // flase ëœ ìˆ˜ëŠ” ìŠ¤í‚µ
 
         for (int j = i * 2; j <= n; j += i) {
-            is_prime[j] = false; // ÇöÀç ¼öÀÇ ¹è¼ö false Ã³¸® 
+            is_prime[j] = false; // í˜„ì¬ ìˆ˜ì˜ ë°°ìˆ˜ false ì²˜ë¦¬ 
         }
     }
     return is_prime;
@@ -22,7 +22,7 @@ int main() {
     cin.tie(0);
 
     const int MAX_N = 1000000;
-    vector<bool> is_prime = findPrime(MAX_N); // 1000000±îÁöÀÇ ¼Ò¼ö¸¦ ¹Ì¸® ±¸ÇÔ
+    vector<bool> is_prime = findPrime(MAX_N); // 1000000ê¹Œì§€ì˜ ì†Œìˆ˜ë¥¼ ë¯¸ë¦¬ êµ¬í•¨
 
     int n;
     while (true) {
@@ -32,9 +32,9 @@ int main() {
         }
 
         bool found = false;
-        for (int a = n - 3; a >= 3; a -= 2) { // °¡Àå Å« È¦¼ö ¼Ò¼öºÎÅÍ Å½»ö
+        for (int a = n - 3; a >= 3; a -= 2) { // ê°€ì¥ í° í™€ìˆ˜ ì†Œìˆ˜ë¶€í„° íƒìƒ‰
             int b = n - a;
-            if (is_prime[a] && is_prime[b]) { // µÎ ¼ö°¡ ¸ğµÎ ¼Ò¼öÀÎÁö È®ÀÎ
+            if (is_prime[a] && is_prime[b]) { // ë‘ ìˆ˜ê°€ ëª¨ë‘ ì†Œìˆ˜ì¸ì§€ í™•ì¸
                 cout << n << " = " << b << " + " << a << "\n"; 
                 found = true;
                 break;
